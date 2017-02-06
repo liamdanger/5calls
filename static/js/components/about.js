@@ -1,12 +1,14 @@
 const html = require('choo/html');
 
+const localize = require('../utils/localize.js');
+
 module.exports = (state, prev, send) => {
   return html`
     <main role="main" class="layout__main">
     <section class="about">
-      <h2 class="about__title">About 5 Calls</h2>
+      <h2 class="about__title">${localize(state, text, "title")}</h2>
 
-      <h3 class="about__subtitle">Why Calling Works</h3>
+      <h3 class="about__subtitle">${localize(state, text, "subtitle")}</h3>
 
       <p>Calling members of Congress is the most effective way to have your voice heard. Calls are tallied by staffers and the count is given to your representatives, informing them how strongly their constituents feel about a current issue. The sooner your reach out, the more likely it is that <strong>your voice will influence their position.</strong></p>
       <p>Don’t just take it from us:</p>
@@ -32,4 +34,15 @@ module.exports = (state, prev, send) => {
     </section>
     </main>
   `;
+}
+
+const text = {
+  'en-US': {
+    'title': `About 5 Calls`,
+    'subtitle': `Why Calling Works`
+  },
+  'es-MX': {
+    'title': `Acerca de 5 Calls`,
+    'subtitle': `Por qué el teléfono es efectivo`
+  }
 }
